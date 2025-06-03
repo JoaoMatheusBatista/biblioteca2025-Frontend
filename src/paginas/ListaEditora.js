@@ -2,13 +2,12 @@ import TituloLista from "../componentes/TituloLista";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function ListaCategoria() {
+export default function ListaEditora() {
     //Declarando uma variável useState
     const [dados, setDados] = useState([]);
 
     const listar = async () => {
-        let { data } = await axios.get(`http://localhost:4000/categoria`);
-        console.log(data);
+        let { data } = await axios.get(`http://localhost:4000/editora`);
         setDados(data);
     }
 
@@ -18,9 +17,9 @@ export default function ListaCategoria() {
 
     return (
         <>
-            <TituloLista titulo="Categorias"
-                descricao="Gerencie aqui as categorias dos livros da biblioteca"
-                rota="/cadastrocategoria" />
+            <TituloLista titulo="Editoras"
+                descricao="Gerencie aqui as editoras da biblioteca"
+                rota="/cadastroeditora" />
 
 
             <div className="row">
@@ -30,7 +29,9 @@ export default function ListaCategoria() {
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Código</th>
-                                <th scope="col">Categoria</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">CNPJ</th>
+                                <th scope="col">Endereço</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,10 +39,12 @@ export default function ListaCategoria() {
                                 <tr>
                                     <td>
                                         <a className="btn btn-primary"
-                                            href={`/cadastrocategoria/${d.idcategoria}`}>Alterar</a>
+                                            href={`/cadastroeditora/${d.ideditora}`}>Alterar</a>
                                     </td>
-                                    <td>{d.idcategoria}</td>
-                                    <td>{d.nomecategoria}</td>
+                                    <td>{d.ideditora}</td>
+                                    <td>{d.nomeeditora}</td>
+                                    <td>{d.cnpj}</td>
+                                    <td>{d.endereco}</td>
                                 </tr>
                             ))}
                         </tbody>
