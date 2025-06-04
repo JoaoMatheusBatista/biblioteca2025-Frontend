@@ -10,6 +10,8 @@ import ListaEditora from './paginas/ListaEditora';
 import FormEditora from './paginas/FormEditora';
 import ListaFuncionario from './paginas/ListaFuncionario';
 import FormFuncionario from './paginas/FormFuncionario';
+import ListaUsuario from './paginas/ListaUsuario';
+import FormUsuario from './paginas/FormUsuario';
 
 function App() {
   return (
@@ -35,6 +37,11 @@ function App() {
             <Route path='/listafuncionario' element={<ListaFuncionario />} />
             <Route path='/cadastrofuncionario' element={<FormFuncionario />} />
             <Route path='/cadastrofuncionario/:id' element={<FormFuncionario />} />
+
+            <Route path='/listausuario' element={<ListaUsuario />} />
+            <Route path='/cadastrousuario' element={<FormUsuario />} />
+            <Route path='/cadastrousuario/:id' element={<FormUsuario />} />
+
 
             <Route path='*' element={<Home />} />
           </Routes>
